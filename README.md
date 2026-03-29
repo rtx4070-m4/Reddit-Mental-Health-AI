@@ -79,7 +79,9 @@ The platform integrates:
                 FastAPI API
                      │
            ┌─────────┴─────────┐
-           📂 Project Structure
+
+
+ 📂 Project Structure
 mental-health-ai-platform/
 
 data_pipeline/
