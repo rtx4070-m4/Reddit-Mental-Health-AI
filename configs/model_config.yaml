@@ -1,0 +1,8 @@
+
+model:
+  bert_model: bert-base-uncased
+  roberta_model: roberta-base
+training:
+  batch_size: 16
+  epochs: 3
+  learning_rate: 2e-5
