@@ -2,12 +2,12 @@
 
 # 🧠 MentalHealth-AI-Risk-Detection
 
-### AI platform for detecting **depression and suicide risk** from Reddit posts using **Transformer NLP models**
+### Transformer-based AI platform for detecting **depression and suicide risk** from Reddit posts
 
 <p>
 
-![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
-![PyTorch](https://img.shields.io/badge/PyTorch-DeepLearning-red.svg)
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![PyTorch](https://img.shields.io/badge/PyTorch-DeepLearning-red)
 ![Transformers](https://img.shields.io/badge/HuggingFace-Transformers-yellow)
 ![FastAPI](https://img.shields.io/badge/API-FastAPI-green)
 ![Streamlit](https://img.shields.io/badge/Dashboard-Streamlit-ff4b4b)
@@ -25,19 +25,21 @@ AI system that analyzes **Reddit posts** and predicts **depression and suicide r
 
 # 📌 Overview
 
-Mental health conditions such as **depression and suicidal ideation** are often expressed in online communities.
+Mental health issues such as **depression** and **suicidal ideation** are frequently expressed on social media.
 
-This project builds a **scalable AI platform** capable of detecting early warning signals from social media text.
+This project builds a **scalable AI platform** that detects early warning signals from Reddit posts using **state-of-the-art transformer models**.
 
-The platform integrates:
+The system combines:
 
-- 🧠 **Transformer NLP Models**
-- 🔎 **Explainable AI**
-- ⚡ **FastAPI prediction services**
-- 📊 **Interactive clinician dashboard**
+* 🧠 Transformer NLP Models
+* 🔎 Explainable AI
+* ⚡ FastAPI inference services
+* 📊 Interactive analytics dashboard
 
-> ⚠️ **Disclaimer**  
-> This system is for **research and educational purposes only** and **must not be used as a clinical diagnostic tool.**
+⚠️ **Disclaimer**
+
+This project is intended **for research and educational purposes only**.  
+It must **not be used as a clinical diagnostic system**.
 
 ---
 
@@ -58,30 +60,36 @@ The platform integrates:
 
 # 🏗 System Architecture
 
-```text
-                Reddit API
-                     │
-                     ▼
-              Data Ingestion
-                     │
-                     ▼
-              Data Processing
-                     │
-                     ▼
-           Transformer NLP Models
-        (BERT / RoBERTa / Ensemble)
-                     │
-                     ▼
-              Explainable AI
-              (SHAP / LIME)
-                     │
-                     ▼
-                FastAPI API
-                     │
-           ┌─────────┴─────────┐
-           ▼                   ▼
-     Streamlit Dashboard   Alert System
+```
+Reddit API
+    │
+    ▼
+Data Ingestion
+    │
+    ▼
+Data Processing Pipeline
+    │
+    ▼
+Transformer NLP Models
+(BERT / RoBERTa / Ensemble)
+    │
+    ▼
+Explainable AI
+(SHAP / LIME)
+    │
+    ▼
+FastAPI Prediction API
+    │
+ ┌──┴───────────┐
+ ▼              ▼
+Dashboard   Alert System
+```
 
+---
+
+# 📂 Project Structure
+
+```bash
 mental-health-ai-platform/
 
 data_pipeline/
@@ -116,146 +124,276 @@ deployment/
 
 configs/
     model_config.yaml
-Machine Learning Models
+```
 
-The system uses Transformer-based NLP models.
+---
 
-Model	Purpose
-BERT	Baseline depression classifier
-RoBERTa	Advanced contextual understanding
-Ensemble Model	Combines predictions
-📊 Risk Classification
-Risk Level	Description
-Low	Normal conversation
-Moderate	Possible depression
-High	Severe depression indicators
-Critical	Possible suicidal ideation
+# 🧠 Machine Learning Models
 
-Example post:
+| Model | Purpose |
+|------|------|
+| **BERT** | Baseline depression classifier |
+| **RoBERTa** | Advanced contextual understanding |
+| **Ensemble Model** | Combines predictions |
 
+---
+
+# 📊 Model Benchmark (Example)
+
+| Model | Accuracy | F1 Score | ROC-AUC |
+|------|------|------|------|
+| Logistic Regression | 0.74 | 0.71 | 0.76 |
+| LSTM | 0.83 | 0.82 | 0.85 |
+| **BERT** | **0.90** | **0.88** | **0.92** |
+| **RoBERTa** | **0.92** | **0.90** | **0.94** |
+
+---
+
+# 📊 Risk Classification
+
+| Risk Level | Description |
+|------|------|
+| Low | Normal conversation |
+| Moderate | Possible depression |
+| High | Severe depression indicators |
+| Critical | Possible suicidal ideation |
+
+Example post
+
+```
 "I feel like my life has no meaning anymore."
+```
 
-Prediction:
+Prediction
 
+```
 Risk Score: 0.91
 Risk Level: Critical
 Recommendation: Immediate mental health support
-🔎 Explainable AI
+```
 
-To ensure transparency, the system includes model explanations.
+---
 
-SHAP
+# 🔎 Explainable AI
 
-Shows global feature importance.
+The system provides **interpretable predictions**.
 
-LIME
+### SHAP
 
-Explains individual predictions.
+Shows **global feature importance** across the dataset.
 
-Example indicators:
+### LIME
 
+Explains **individual predictions**.
+
+Example risk indicators:
+
+```
 hopeless
 meaningless
 end my life
 can't go on
-🔌 API Endpoints
-Health Check
+```
+
+---
+
+# 🎬 Demo
+
+Example dashboard interface:
+
+```
+User Input → Reddit Post
+        ↓
+Risk Score → 0.87
+Risk Level → High
+Recommendation → Professional counseling suggested
+```
+
+---
+
+# 🔌 API Endpoints
+
+### Health Check
+
+```
 GET /health
+```
 
 Response
 
+```json
 {
-  "status": "ok"
+"status": "ok"
 }
-Predict Mental Health Risk
+```
+
+---
+
+### Predict Mental Health Risk
+
+```
 POST /predict
+```
 
 Request
 
+```json
 {
 "text": "I feel hopeless and tired of life"
 }
+```
 
 Response
 
+```json
 {
-"risk_score":0.92,
-"recommendation":"Immediate crisis hotline recommendation"
+"risk_score": 0.92,
+"recommendation": "Immediate crisis hotline recommendation"
 }
-⚙️ Installation
+```
+
+---
+
+# ⚙️ Installation
 
 Clone repository
 
+```bash
 git clone https://github.com/yourusername/MentalHealth-AI-Risk-Detection.git
 cd MentalHealth-AI-Risk-Detection
+```
 
 Install dependencies
 
+```bash
 pip install -r requirements.txt
-▶️ Running the Platform
-Collect Data
+```
+
+---
+
+# ▶️ Running the Platform
+
+Collect data
+
+```bash
 python data_pipeline/reddit_scraper.py
-Train Model
+```
+
+Train model
+
+```bash
 python retraining/automated_training.py
+```
+
 Start API
+
+```bash
 uvicorn backend.api_server:app --reload
-Launch Dashboard
+```
+
+Launch dashboard
+
+```bash
 streamlit run dashboard/clinician_dashboard.py
-🐳 Docker Deployment
+```
+
+---
+
+# 🐳 Docker Deployment
 
 Build container
 
+```bash
 docker build -t mental-health-ai .
+```
 
 Run container
 
+```bash
 docker run -p 8000:8000 mental-health-ai
-📚 Datasets
+```
 
-Recommended datasets:
+---
 
-• Reddit Mental Health Dataset
-• CLPsych 2015 Shared Task
-• Depression Reddit Dataset
+# 📚 Datasets
 
-Sources:
+Recommended datasets
 
-https://huggingface.co/datasets
+• Reddit Mental Health Dataset  
+• CLPsych 2015 Shared Task  
+• Depression Reddit Dataset  
+
+Sources
+
+https://huggingface.co/datasets  
 https://reddit.com
-🛠 Technology Stack
-Layer	Technology
-Machine Learning	PyTorch
-NLP	HuggingFace Transformers
-Explainability	SHAP, LIME
-API	FastAPI
-Dashboard	Streamlit
-Deployment	Docker, Kubernetes
-⚠️ Ethical Considerations
+
+---
+
+# 🛠 Technology Stack
+
+| Layer | Technology |
+|------|------|
+Machine Learning | PyTorch |
+NLP | HuggingFace Transformers |
+Explainability | SHAP, LIME |
+API | FastAPI |
+Dashboard | Streamlit |
+Deployment | Docker, Kubernetes |
+
+---
+
+# ⚠️ Ethical Considerations
 
 Mental health AI must be used responsibly.
 
-AI should assist clinicians, not replace them
-Predictions require human interpretation
-Systems must avoid bias
-Crisis resources should always be available
-🤝 Contributing
+• AI should **assist clinicians, not replace them**  
+• Predictions require **human interpretation**  
+• Systems must **avoid bias**  
+• Crisis resources should always be available  
+
+---
+
+# 🤝 Contributing
 
 Contributions are welcome.
 
 Possible improvements:
 
-Better NLP models
-Additional datasets
-Dashboard enhancements
-Monitoring pipelines
-⭐ Support
+* Better NLP models
+* Additional datasets
+* Dashboard enhancements
+* Monitoring pipelines
 
-If you find this project useful:
+---
 
-⭐ Star the repository
-🍴 Fork the project
-📢 Share with the community
+# ⭐ Support
 
-📜 License
+If you find this project useful
+
+⭐ Star the repository  
+🍴 Fork the project  
+📢 Share with the community  
+
+---
+
+# 📜 License
 
 MIT License
+
+---
+
+# 🏷 GitHub Topics
+
+```
+mental-health
+nlp
+machine-learning
+transformers
+bert
+roberta
+suicide-prevention
+fastapi
+streamlit
+ai-healthcare
+```
