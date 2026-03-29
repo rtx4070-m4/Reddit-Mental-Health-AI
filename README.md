@@ -79,9 +79,9 @@ The platform integrates:
                 FastAPI API
                      │
            ┌─────────┴─────────┐
+           ▼                   ▼
+     Streamlit Dashboard   Alert System
 
-
- 📂 Project Structure
 mental-health-ai-platform/
 
 data_pipeline/
@@ -116,7 +116,7 @@ deployment/
 
 configs/
     model_config.yaml
-🧠 Machine Learning Models
+Machine Learning Models
 
 The system uses Transformer-based NLP models.
 
@@ -259,5 +259,3 @@ If you find this project useful:
 📜 License
 
 MIT License
-           ▼                   ▼
-     Streamlit Dashboard   Alert System
